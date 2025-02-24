@@ -36,7 +36,7 @@ const Navbar = () => {
     // Function to open the auth modal and navigate to the registration page
     const handleOpen = () => {
         setOpenAuthModel(true)
-        navigate('/register');
+        navigate('/login');
     }
     // Function to close the auth modal
     const handleClose = () => {

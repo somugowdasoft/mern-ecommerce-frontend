@@ -19,7 +19,7 @@ const CreateProduct = () => {
         discountedPrice: "",
         price: "",
         discountPersent: "",
-        sizes: initialSize,
+        sizes: [...initialSize],
         quantity: "",
         topLevelCategory: "",
         secondLevelCategory: "",
@@ -66,7 +66,7 @@ const CreateProduct = () => {
             discountedPrice: "",
             price: "",
             discountPersent: "",
-            sizes: [...initialSize],
+            sizes: JSON.parse(JSON.stringify(initialSize)),
             quantity: "",
             topLevelCategory: "",
             secondLevelCategory: "",
@@ -90,6 +90,7 @@ const CreateProduct = () => {
                                 name="imageUrl"
                                 value={productData.imageUrl}
                                 onChange={handleChange}
+                                required
                             />
                         </Grid>
                         <Grid size={{ xs: 12, sm: 6 }}>
@@ -99,6 +100,7 @@ const CreateProduct = () => {
                                 name="brand"
                                 value={productData.brand}
                                 onChange={handleChange}
+                                required
                             />
                         </Grid>
                         <Grid size={{ xs: 12, sm: 6 }}>
@@ -108,6 +110,7 @@ const CreateProduct = () => {
                                 name="title"
                                 value={productData.title}
                                 onChange={handleChange}
+                                required
                             />
                         </Grid>
                         <Grid size={{ xs: 12, sm: 6 }}>
@@ -117,6 +120,7 @@ const CreateProduct = () => {
                                 name="color"
                                 value={productData.color}
                                 onChange={handleChange}
+                                required
                             />
                         </Grid>
                         <Grid size={{ xs: 12, sm: 6 }}>
@@ -127,6 +131,7 @@ const CreateProduct = () => {
                                 name="quantity"
                                 value={productData.quantity}
                                 onChange={handleChange}
+                                required
                             />
                         </Grid>
                         <Grid size={{ xs: 12, sm: 4 }}>
@@ -137,6 +142,7 @@ const CreateProduct = () => {
                                 name="price"
                                 value={productData.price}
                                 onChange={handleChange}
+                                required
                             />
                         </Grid>
                         <Grid size={{ xs: 12, sm: 4 }}>
@@ -147,6 +153,7 @@ const CreateProduct = () => {
                                 name="discountedPrice"
                                 value={productData.discountedPrice}
                                 onChange={handleChange}
+                                required
                             />
                         </Grid>
                         <Grid size={{ xs: 12, sm: 4 }}>
@@ -157,6 +164,7 @@ const CreateProduct = () => {
                                 name="discountPersent"
                                 value={productData.discountPersent}
                                 onChange={handleChange}
+                                required
                             />
                         </Grid>
                         <Grid size={{ xs: 6, sm: 4 }}>
@@ -167,11 +175,11 @@ const CreateProduct = () => {
                                     value={productData.topLevelCategory}
                                     onChange={handleChange}
                                     label="Top Level Category"
+                                    required
                                 >
                                     <MenuItem value="men"> Men </MenuItem>
                                     <MenuItem value="women"> Women </MenuItem>
                                     <MenuItem value="kids"> Kids </MenuItem>
-
                                 </Select>
                             </FormControl>
                         </Grid>
@@ -183,6 +191,7 @@ const CreateProduct = () => {
                                     value={productData.secondLevelCategory}
                                     onChange={handleChange}
                                     label="Second Level Category"
+                                    required
                                 >
                                     <MenuItem value="clothing"> Clothing </MenuItem>
                                     <MenuItem value="accesories"> Accesories </MenuItem>
@@ -199,6 +208,7 @@ const CreateProduct = () => {
                                     value={productData.thirdLevelCategory}
                                     onChange={handleChange}
                                     label="Third Level Category"
+                                    required
                                 >
                                     <MenuItem value="top"> Top </MenuItem>
                                     <MenuItem value="women_dress"> Dress </MenuItem>
@@ -222,6 +232,7 @@ const CreateProduct = () => {
                                 variant="outlined"
                                 placeholder="Enter a detailed product description..."
                                 inputProps={{ maxLength: 500 }}
+                                required
                             />
                         </Grid>
                         {productData.sizes.map((size, index) => (

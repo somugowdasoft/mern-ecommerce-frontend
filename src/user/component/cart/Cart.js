@@ -60,7 +60,7 @@ const Cart = () => {
                             </div>
                         </div>
                         <Button onClick={handleCheckout} variant="contained" sx={{ bgcolor: "blueviolet", mt: "20px", width: "100%" }}>
-                            Checkout
+                            Buy Now
                         </Button>
                     </div>
                 </div>

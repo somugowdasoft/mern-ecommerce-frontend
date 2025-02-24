@@ -23,13 +23,19 @@ const HomeSectionCard = ({ product }) => {
 
     return (
         <div onClick={handleClick} className="flex flex-col items-center bg-white rounded-lg shadow-lg overflow-hidden w-[240px] mx-3 border border-gray-400">
-            <div className="h-[205px] w-[160px] ">
-                <img className="object-cover object-top w-full h-full" src={product.imageUrl} alt="" />
+            <div className="w-[180px] h-[270px] bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105">
+                {/* Product Image */}
+                <div className="h-[210px] w-full">
+                    <img className="object-cover object-top w-full h-full" src={product.imageUrl} alt={product.title} />
+                </div>
+
+                {/* Product Details */}
+                <div className="p-3">
+                    <h3 className="text-md font-semibold text-gray-900 truncate">{product.brand}</h3>
+                    <p className="text-sm text-gray-600 truncate">{product.title}</p>
+                </div>
             </div>
-            <div className="p-4">
-                <h3 className="text-lg font-medium text-gray-900">{product.brand}</h3>
-                <p className="mt-2 text-sm text-gray-600">{product.title}</p>
-            </div>
+
 
             <Snackbar
                 open={openSnackbar}

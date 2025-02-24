@@ -25,9 +25,15 @@ function ProductCard({ product }) {
     return (
         <div onClick={handleClick}>
             <Card sx={{
-                maxWidth: 300, borderRadius: 2, boxShadow: 3, margin: '10px', cursor: 'pointer',
+                maxWidth: 300,
+                borderRadius: 2,
+                boxShadow: 3,
+                margin: '10px',
+                cursor: 'pointer',
+                transition: 'box-shadow .3s ease-in-out',  // Smooth transition for hover effect
                 '&:hover': {
                     boxShadow: 8,
+                    transform: 'scale(1.05)',  // Slight zoom effect on hover
                 },
             }}>
                 <Link>
@@ -37,40 +43,84 @@ function ProductCard({ product }) {
                             width: '100%',
                             height: 320,
                             objectFit: 'cover',
+                            borderRadius: '8px',
                         }}
                         image={product.imageUrl}
                         alt="product image"
                     />
                 </Link>
+
                 <CardContent sx={{
-                    bgcolor: 'white', transition: 'transform .3s ease-out',
+                    bgcolor: 'white',
+                    transition: 'transform .3s ease-out',
                     '&:hover': {
-                        transform: 'translateY(-1rem)',
+                        transform: 'translateY(-1rem)',  // Smooth lift effect on hover
                     },
                 }}>
                     <Link>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', opacity: '0.8' }}>
+                        <Typography variant="h6" sx={{
+                            fontWeight: 'bold',
+                            opacity: '0.8',
+                            fontSize: '1rem',
+                            color: '#333',
+                        }}>
                             {product.brand}
                         </Typography>
-                        <Typography variant="p" sx={{ fontWeight: '600', color: 'gray' }}>
+
+                        <Typography variant="body2" sx={{
+                            fontWeight: '600',
+                            color: 'gray',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            whiteSpace: 'nowrap',
+                            display: 'block',
+                            width: '100%',
+                            fontSize: '0.9rem',
+                        }}>
                             {product.title}
                         </Typography>
                     </Link>
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            <Typography variant="body2" sx={{ fontWeight: 'bold', marginRight: '10px', textDecoration: 'line-through', opacity: "0.5" }}>
+
+                    <Box sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginTop: 2,
+                    }}>
+                        <Box sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                        }}>
+                            <Typography variant="body2" sx={{
+                                fontWeight: 'bold',
+                                marginRight: '10px',
+                                textDecoration: 'line-through',
+                                opacity: 0.5,
+                                fontSize: '0.9rem',
+                            }}>
                                 ₹{product.price}
                             </Typography>
-                            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+
+                            <Typography variant="h6" sx={{
+                                fontWeight: 'bold',
+                                fontSize: '1.1rem',
+                            }}>
                                 ₹{product.discountedPrice}
                             </Typography>
-                            <Typography variant="body2" sx={{ color: "green", fontWeight: 'bold', marginLeft: '10px' }}>
-                                {product.discountPersent}% of
+
+                            <Typography variant="body2" sx={{
+                                color: 'green',
+                                fontWeight: 'bold',
+                                marginLeft: '10px',
+                                fontSize: '0.9rem',
+                            }}>
+                                {product.discountPersent}% off
                             </Typography>
                         </Box>
                     </Box>
                 </CardContent>
             </Card>
+
 
             <Snackbar
                 open={openSnackbar}

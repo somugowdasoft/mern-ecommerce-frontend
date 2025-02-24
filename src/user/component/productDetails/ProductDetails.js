@@ -22,7 +22,6 @@ const ProductDetails = () => {
             const data = { productId: params.productId, size: selectedSize.name }
             dispatch(addItemToCart(data))
             navigate("/cart")
-
         }
     }
 

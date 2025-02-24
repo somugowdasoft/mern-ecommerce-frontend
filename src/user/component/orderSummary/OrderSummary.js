@@ -34,7 +34,7 @@ const OrderSummary = () => {
     // Function to handle the payment process using Razorpay
     const handlePayment = () => {
         const options = {
-            key: process.env.ROZ_KEY_ID,
+            key: process.env.REACT_APP_ROZ_KEY_ID,
             amount: amount,
             currency: 'INR',
             name: 'SHOPPER',
@@ -46,7 +46,7 @@ const OrderSummary = () => {
             theme: {
                 color: '#F37254',
             },
-        };
+        };        
         const razorpay = new window.Razorpay(options);
         razorpay.open();
     }
@@ -93,7 +93,7 @@ const OrderSummary = () => {
                                 </div>
                             </div>
                             <Button variant="contained" sx={{ bgcolor: "blueviolet", mt: "20px", width: "100%" }} onClick={handlePayment}>
-                                Checkout
+                                Make a Payment
                             </Button>
                         </div>
                     </div>
