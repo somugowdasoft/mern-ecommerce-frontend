@@ -26,42 +26,63 @@ const OrderSummary = () => {
     // useEffect hook to trigger the creation of a payment when amount is available
     const amount = order?.data?.order?.totalDiscountPrice
     useEffect(() => {
-        if(amount) {
+        if (amount) {
             dispatch(createPayment(amount, 'INR'));
         }
     }, [dispatch, amount])
 
     // Function to handle the payment process using Razorpay
     const handlePayment = () => {
+        if (!payment?.data?.id) {
+            console.error("Error: Order ID is missing");
+            return;
+        }
+
+        if (!process.env.REACT_APP_ROZ_KEY_ID) {
+            console.error("Error: Razorpay Key is missing");
+            return;
+        }
+
         const options = {
             key: process.env.REACT_APP_ROZ_KEY_ID,
             amount: amount,
             currency: 'INR',
             name: 'SHOPPER',
-            description: `Payment for product`,
+            description: 'Payment for product',
             order_id: payment?.data?.id,
             handler: async (response) => {
-                dispatch(paymentVerification(  payment?.data?.id, response.razorpay_payment_id, response.razorpay_signature, orderId))
+                console.log("Payment Response:", response);
+                if (!response.razorpay_payment_id || !response.razorpay_signature) {
+                    console.error("Missing Razorpay response data");
+                    return;
+                }
+                dispatch(paymentVerification(payment?.data?.id, response.razorpay_payment_id, response.razorpay_signature, orderId));
             },
             theme: {
-                color: '#F37254',
+                color: '#54D5F3',
             },
-        };        
+        };
+
+        if (typeof window.Razorpay === "undefined") {
+            console.error("Error: Razorpay SDK not loaded");
+            return;
+        }
+
         const razorpay = new window.Razorpay(options);
         razorpay.open();
-    }
+    };
 
     // useEffect hook to navigate to the success page when payment is successful
     useEffect(() => {
-        if(payment?.data?.success) {
+        if (payment?.data?.success) {
             navigate("/payment-success")
         }
     }, [payment, navigate])
 
     return (
-        <div>
+        <div className="overflow-auto">
             <div className="p-5 shadow-lg rounded-md border">
-                <AddressCard address={order?.data?.order?.shippingAddress}/>
+                <AddressCard address={order?.data?.order?.shippingAddress} />
             </div>
             <div className="my-6">
                 <div className="lg:grid grid-cols-3 relative">

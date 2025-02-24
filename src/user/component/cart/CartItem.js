@@ -18,7 +18,7 @@ const CartItem = ({ item }) => {
     };
 
     return (
-        <div className="p-5 shadow-lg border rounded-md mb-6">
+        <div className="p-5 shadow-lg border rounded-md mb-6 overflow-auto">
             <div className="flex items-center">
                 <div className="w-[80px] h-[80px] lg:w-[140px] lg:h-[140px]">
                     <img className="w-full h-full object-cover object-top" src={item.product?.imageUrl} alt="productImg" />
