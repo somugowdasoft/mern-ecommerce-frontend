@@ -7,13 +7,13 @@ export const navigation = {
                 {
                     name: 'New Arrivals',
                     href: '/',
-                    imageSrc: 'https://urbantheka.in/cdn/shop/products/PunjabMapPinkGirls.jpg?v=1704190968&width=533',
+                    imageSrc: 'https://www.shutterstock.com/image-photo/beautiful-woman-fashion-model-makeup-600nw-1918687337.jpg',
                     imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
                 },
                 {
                     name: 'Basic Tees',
                     href: '/',
-                    imageSrc: 'https://rukminim2.flixcart.com/image/850/1000/xif0q/shirt/h/p/p/l-1c23shirr004-mustard-jaipur-kurti-original-imagtg8ktgf4hnjy.jpeg?q=90&crop=false',
+                    imageSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQSbY-44rMES5MpKnIop0nL6MOUy-ikWKIcQ&s',
                     imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
                 },
             ],
@@ -45,13 +45,13 @@ export const navigation = {
                 {
                     name: 'New Arrivals',
                     id: '#',
-                    imageSrc: 'https://assets.panashindia.com/media/catalog/product/cache/1/image/479x671/9df78eab33525d08d6e5fb8d27136e95/8/5/856mw16-7099e-mks-bk.jpg',
+                    imageSrc: 'https://static.nextdirect.com/resource/blob/715638/ae58eb425dc13350a06316e6a609036e/denim-data.jpg',
                     imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
                 },
                 {
                     name: 'Artwork Tees',
                     id: '#',
-                    imageSrc: 'https://thefoomer.in/cdn/shop/products/jpeg-optimizer_PATP5156.jpg?v=1680162712',
+                    imageSrc: 'https://rukminim2.flixcart.com/image/850/1000/xif0q/shirt/2/i/x/m-ar-fsh-2-light-blue-aary-fashion-original-imagry4pegejqbbt.jpeg?q=90&crop=false',
                     imageAlt:
                         'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
                 },

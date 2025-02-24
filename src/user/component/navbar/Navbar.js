@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getUser, logout } from '../../../state/auth/Action'
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import LogoutIcon from '@mui/icons-material/Logout';
+import NotificationBar from '../NotificationBar/NotificationBar'
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
@@ -89,7 +90,7 @@ const Navbar = () => {
 
                         {/* Links */}
                         <TabGroup className="mt-2">
-                             <div className="border-b border-gray-200">
+                            <div className="border-b border-gray-200">
                                 <TabList className="-mb-px flex space-x-8 px-4">
                                     {navigation.categories.map((category) => (
                                         <Tab
@@ -184,10 +185,7 @@ const Navbar = () => {
             </Dialog>
 
             <header className="relative bg-white z-50">
-                <p className="flex h-10 items-center justify-center bg-green-600 px-4 text-sm font-medium text-black sm:px-6 lg:px-8">
-                    Get free delivery on orders over $100
-                </p>
-
+                <NotificationBar />
                 <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="border-b border-gray-200">
                         <div className="flex h-16 items-center">

@@ -14,7 +14,7 @@ const MonthlyOverview = ({totalRevenue, orders, users}) => {
     // Define the sales data structure with stats, title, color and icons
     const salesData = [
         {
-            stats: `${products?.data?.content.length}`, 
+            stats: `${orders?.data?.orders.length}`, 
             title: "Sales",
             color: "#EEC213",
             icon: <TrendingUpIcon sx={{ fontSize: "30px" }} />
@@ -26,7 +26,7 @@ const MonthlyOverview = ({totalRevenue, orders, users}) => {
             icon: <AccountCircleIcon sx={{ fontSize: "30px" }} />
         },
         {
-            stats: `${orders?.data?.orders.length}`, 
+            stats: `${products?.data?.content.length}`, 
             title: "Product",
             color: "#E71C23",
             icon: <PhonelinkIcon sx={{ fontSize: "30px" }} />

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { createProduct } from "../../../state/product/Action";
 import { Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 import Grid from '@mui/material/Grid2';
+import { categories } from './ProductCategoriesData';
 
 let initialSize = [
     { name: "S", quantity: 0 },
@@ -209,14 +210,20 @@ const CreateProduct = () => {
                                     onChange={handleChange}
                                     label="Third Level Category"
                                     required
+                                    MenuProps={{
+                                        PaperProps: {
+                                            style: {
+                                                maxHeight: 200,  // Adjust the max height as needed
+                                                overflowY: 'auto',  // Make the dropdown scrollable
+                                            },
+                                        },
+                                    }}
                                 >
-                                    <MenuItem value="top"> Top </MenuItem>
-                                    <MenuItem value="women_dress"> Dress </MenuItem>
-                                    <MenuItem value="women_jeans"> Women Jeans </MenuItem>
-                                    <MenuItem value="men_jeans"> Men Jeans </MenuItem>
-                                    <MenuItem value="shirt"> Shirt </MenuItem>
-                                    <MenuItem value="mens_kurta"> Mens Kurta </MenuItem>
-                                    <MenuItem value="mens_watches"> Men Watches </MenuItem>
+                                    {categories.map((category) => (
+                                        <MenuItem key={category.value} value={category.value}>
+                                            {category.label}
+                                        </MenuItem>
+                                    ))}
                                 </Select>
                             </FormControl>
                         </Grid>

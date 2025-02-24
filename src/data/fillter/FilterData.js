@@ -9,7 +9,8 @@ export const filters = [
             { value: "marun", label: "Marun"},
             { value: "pink", label: "Pink"},
             { value: "green", label: "Green"},
-            { value: "yellow", label: "Yellow"}
+            { value: "yellow", label: "Yellow"},
+            { value: "blue", label: "Blue"}
         ]
     },
 
